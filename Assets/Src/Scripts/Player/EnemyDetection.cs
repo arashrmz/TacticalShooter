@@ -10,13 +10,15 @@ namespace Src.Scripts.Player
         [SerializeField] private float visionRange;
         [SerializeField] private float visionAngle;
         [SerializeField] private int visionConeResolution = 120;
-
-        private List<Enemy> visibleEnemies = new List<Enemy>();
+        [SerializeField] private LayerMask obstacleLayers;
+        
         private HashSet<Enemy> previouslyVisibleEnemies = new HashSet<Enemy>();
-
+        public List<Enemy> VisibleEnemies { get; private set; } = new List<Enemy>();
+        public event Action OnDetectEnemy;
+        
         void FixedUpdate()
         {
-            visibleEnemies.Clear();
+            VisibleEnemies.Clear();
 
             // Get all colliders within range
             Collider[] colliders = Physics.OverlapSphere(transform.position, visionRange);
@@ -24,47 +26,31 @@ namespace Src.Scripts.Player
             foreach (Collider collider in colliders)
             {
                 Enemy enemy = collider.GetComponent<Enemy>();
-                if (enemy == null || visibleEnemies.Contains(enemy)) continue;
+                if (enemy == null || VisibleEnemies.Contains(enemy)) continue;
 
                 Vector3 directionToTarget = enemy.transform.position - transform.position;
 
                 // Check if target object is within detection angle
                 if (!(Vector3.Angle(transform.forward, directionToTarget) <= visionAngle / 2f)) continue;
+                int layerMask = ~obstacleLayers.value;
+                Ray ray = new Ray(transform.position, directionToTarget.normalized);
+                RaycastHit hit;
 
                 // Cast a ray towards target object
-                if (Physics.Raycast(transform.position, directionToTarget.normalized, out var hit))
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
                 {
+                    Debug.DrawLine(transform.position, hit.transform.position);
                     // Check if nothing obstructs line of sight to enemy
                     if (hit.collider.gameObject == enemy.gameObject)
                     {
                         // Add the enemy to the list of visible enemies
-                        visibleEnemies.Add(enemy);
+                        VisibleEnemies.Add(enemy);
                     }
                 }
             }
 
-            // Perform additional logic with the updated list of visible enemies
-
-            foreach (var previouslyVisibleEnemy in previouslyVisibleEnemies)
-            {
-                if (!visibleEnemies.Contains(previouslyVisibleEnemy))
-                {
-                    Debug.Log(previouslyVisibleEnemy.name + " is no longer visible!");
-                    // Handle logic for enemies that are no longer visible
-                }
-            }
-
-            foreach (Enemy newlyVisibleEnemy in visibleEnemies)
-            {
-                if (!previouslyVisibleEnemies.Contains(newlyVisibleEnemy))
-                {
-                    Debug.Log(newlyVisibleEnemy.name + " is newly visible!");
-                    // Handle logic for enemies that are newly visible
-                }
-            }
-
-            previouslyVisibleEnemies.Clear();
-            previouslyVisibleEnemies.UnionWith(visibleEnemies);
+            Debug.Log(VisibleEnemies.Count);
+            OnDetectEnemy?.Invoke();
         }
     }
 }
