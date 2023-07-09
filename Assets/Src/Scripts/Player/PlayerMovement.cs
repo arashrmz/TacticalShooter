@@ -41,11 +41,9 @@ namespace Src.Scripts.Player
             Quaternion targetRotation =
                 Quaternion.Euler(0f, targetRotationY , 0f);
          
-            // transform.rotation= Quaternion.Lerp(transform.rotation,
-            //     targetRotation,
-            //     rotateSpeed * Time.deltaTime);
-
-            transform.rotation = targetRotation;
+            transform.rotation= Quaternion.Lerp(transform.rotation,
+                targetRotation,
+                rotateSpeed * Time.deltaTime);
         }
     }
 }
