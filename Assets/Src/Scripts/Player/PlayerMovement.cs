@@ -1,4 +1,5 @@
 ﻿using System;
+using EasyJoystick;
 using UnityEngine;
 
 namespace Src.Scripts.Player
@@ -7,6 +8,7 @@ namespace Src.Scripts.Player
     {
         [SerializeField] private float moveSpeed = 5f;
         [SerializeField] private float rotateSpeed = 10f;
+        [SerializeField] private Joystick rotationJoystick;
         
         private void Update()
         {
@@ -28,15 +30,10 @@ namespace Src.Scripts.Player
 
         private void HandleRotation()
         {
-            // Handle rotation based on mouse input or other means (e.g., touch drag)
-            Vector3 mousePosition = Input.mousePosition;
-            Vector3 playerScreenPos =
-                Camera.main.WorldToScreenPoint(transform.position);
-     
             Vector2 offsetMousePos =
-                new Vector2(mousePosition.x - playerScreenPos.x,
-                    mousePosition.y - playerScreenPos.y);
-                     
+                new Vector2(rotationJoystick.Horizontal(), rotationJoystick.Vertical());
+            if (offsetMousePos.sqrMagnitude < Mathf.Epsilon)
+                return;
             float targetRotationY =
                 Mathf.Atan2(offsetMousePos.x, offsetMousePos.y) *
                 Mathf.Rad2Deg;
