@@ -1257,6 +1257,7 @@ GameObject:
   - component: {fileID: 588489181}
   - component: {fileID: 588489185}
   - component: {fileID: 588489186}
+  - component: {fileID: 588489187}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1384,6 +1385,22 @@ MonoBehaviour:
   visionRange: 10
   visionAngle: 60
   visionConeResolution: 120
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &588489187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588489180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6fbeed5ded4c5ab7a56ef09d653d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2725605289982883553, guid: b0480ecfcef78ed4aa780f20f0abf13f, type: 3}
 --- !u!43 &612970728
 Mesh:
   m_ObjectHideFlags: 0
