@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 92337273}
   - component: {fileID: 92337274}
   - component: {fileID: 92337275}
+  - component: {fileID: 92337276}
   m_Layer: 7
   m_Name: Enemy (3)
   m_TagString: Enemy
@@ -290,6 +291,20 @@ MonoBehaviour:
   osbtaclesLayer:
     serializedVersion: 2
     m_Bits: 576
+--- !u!114 &92337276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92337268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2794414d33e0416cb3ef82d7018acb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingRate: 0.7
+  bulletPrefab: {fileID: 2725605289982883553, guid: 36b2c02f1f282c341af1c5c8a0c6ee4f, type: 3}
 --- !u!1 &110317853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,6 +1200,7 @@ GameObject:
   - component: {fileID: 542509465}
   - component: {fileID: 542509466}
   - component: {fileID: 542509467}
+  - component: {fileID: 542509468}
   m_Layer: 7
   m_Name: Enemy (4)
   m_TagString: Enemy
@@ -1337,6 +1353,20 @@ MonoBehaviour:
   osbtaclesLayer:
     serializedVersion: 2
     m_Bits: 576
+--- !u!114 &542509468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542509460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2794414d33e0416cb3ef82d7018acb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingRate: 0.7
+  bulletPrefab: {fileID: 2725605289982883553, guid: 36b2c02f1f282c341af1c5c8a0c6ee4f, type: 3}
 --- !u!1 &588489180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,6 +1382,7 @@ GameObject:
   - component: {fileID: 588489185}
   - component: {fileID: 588489186}
   - component: {fileID: 588489187}
+  - component: {fileID: 588489188}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1496,6 +1527,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2725605289982883553, guid: b0480ecfcef78ed4aa780f20f0abf13f, type: 3}
   shootingRate: 0.5
+--- !u!54 &588489188
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588489180}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!43 &612970728
 Mesh:
   m_ObjectHideFlags: 0
@@ -1873,6 +1931,7 @@ GameObject:
   - component: {fileID: 832331162}
   - component: {fileID: 832331163}
   - component: {fileID: 832331164}
+  - component: {fileID: 832331165}
   m_Layer: 7
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -2025,6 +2084,20 @@ MonoBehaviour:
   osbtaclesLayer:
     serializedVersion: 2
     m_Bits: 576
+--- !u!114 &832331165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832331157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2794414d33e0416cb3ef82d7018acb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingRate: 0.7
+  bulletPrefab: {fileID: 2725605289982883553, guid: 36b2c02f1f282c341af1c5c8a0c6ee4f, type: 3}
 --- !u!1 &910875377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,6 +2113,7 @@ GameObject:
   - component: {fileID: 910875382}
   - component: {fileID: 910875383}
   - component: {fileID: 910875384}
+  - component: {fileID: 910875385}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -2192,6 +2266,20 @@ MonoBehaviour:
   osbtaclesLayer:
     serializedVersion: 2
     m_Bits: 576
+--- !u!114 &910875385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910875377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2794414d33e0416cb3ef82d7018acb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingRate: 0.7
+  bulletPrefab: {fileID: 2725605289982883553, guid: 36b2c02f1f282c341af1c5c8a0c6ee4f, type: 3}
 --- !u!1 &925552409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,7 +2294,7 @@ GameObject:
   - component: {fileID: 925552411}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3792,6 +3880,7 @@ GameObject:
   - component: {fileID: 2028778280}
   - component: {fileID: 2028778281}
   - component: {fileID: 2028778282}
+  - component: {fileID: 2028778283}
   m_Layer: 7
   m_Name: Enemy (2)
   m_TagString: Enemy
@@ -3944,3 +4033,17 @@ MonoBehaviour:
   osbtaclesLayer:
     serializedVersion: 2
     m_Bits: 576
+--- !u!114 &2028778283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028778275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2794414d33e0416cb3ef82d7018acb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingRate: 0.7
+  bulletPrefab: {fileID: 2725605289982883553, guid: 36b2c02f1f282c341af1c5c8a0c6ee4f, type: 3}
