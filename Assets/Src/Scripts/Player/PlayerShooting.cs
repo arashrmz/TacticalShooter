@@ -90,5 +90,10 @@ namespace Src.Scripts.Player
         {
             _enemyDetection.OnDetectEnemy -= ShootEnemies;
         }
+
+        public void AddAmmo(int ammo)
+        {
+            _testWeapon.totalBullets += ammo;
+        }
     }
 }
