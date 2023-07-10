@@ -287,6 +287,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewDistance: 7
   viewAngle: 45
+  osbtaclesLayer:
+    serializedVersion: 2
+    m_Bits: 576
 --- !u!1 &110317853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1334,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewDistance: 7
   viewAngle: 45
+  osbtaclesLayer:
+    serializedVersion: 2
+    m_Bits: 576
 --- !u!1 &588489180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,7 +1352,7 @@ GameObject:
   - component: {fileID: 588489185}
   - component: {fileID: 588489186}
   - component: {fileID: 588489187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2016,6 +2022,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewDistance: 7
   viewAngle: 45
+  osbtaclesLayer:
+    serializedVersion: 2
+    m_Bits: 576
 --- !u!1 &910875377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2189,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewDistance: 7
   viewAngle: 45
+  osbtaclesLayer:
+    serializedVersion: 2
+    m_Bits: 576
 --- !u!1 &925552409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3929,3 +3941,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewDistance: 7
   viewAngle: 45
+  osbtaclesLayer:
+    serializedVersion: 2
+    m_Bits: 576
