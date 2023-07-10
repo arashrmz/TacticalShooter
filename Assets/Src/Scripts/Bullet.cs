@@ -1,4 +1,5 @@
 ﻿using System;
+using Src.Scripts.Enemies;
 using UnityEngine;
 
 namespace Src.Scripts
@@ -8,7 +9,8 @@ namespace Src.Scripts
         private Transform _target;
         private Vector3 _direction;
         
-        [SerializeField] private float moveSpeed = 10f;
+        [SerializeField] private float moveSpeed = 10f; //move speed of the bullet
+        [SerializeField] private int damage = 1;    //damage given by the bullet
         
         public void SetTarget(Transform target)
         {
@@ -34,6 +36,8 @@ namespace Src.Scripts
 
         private void HitTarget()
         {
+            //damage the enemy
+            _target.GetComponent<Enemy>()?.TakeDamage(damage);
             Destroy(gameObject);
         }
     }
