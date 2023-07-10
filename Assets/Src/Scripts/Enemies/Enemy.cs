@@ -7,10 +7,25 @@ namespace Src.Scripts.Enemies
     {
         [SerializeField] private int maxHealth;
         private int _currentHealth;
-
+        private EnemyLineOfSight _lineOfSight;
+        
         private void Start()
         {
             _currentHealth = maxHealth;
+            _lineOfSight = GetComponent<EnemyLineOfSight>();
+            _lineOfSight.OnPlayerEnterSight += PlayerOnSight;
+            _lineOfSight.OnPlayerExitSight += PlayerExitSight;
+        }
+        
+        //player is in sight of enemy (deal damage, ...)
+        private void PlayerOnSight()
+        {
+            Debug.Log("Player spotted");
+        }
+        
+        private void PlayerExitSight()
+        {
+            Debug.Log("Player out of sight!");
         }
 
         //hit by a bullet
@@ -24,6 +39,12 @@ namespace Src.Scripts.Enemies
         private void Die()
         {
             Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            _lineOfSight.OnPlayerEnterSight -= PlayerOnSight;
+            _lineOfSight.OnPlayerExitSight -= PlayerExitSight;
         }
     }
 }
