@@ -29,5 +29,10 @@ namespace Src.Scripts.Player
         {
             Debug.Log("You lost!");
         }
+
+        public void AddHealth(int health)
+        {
+            _currentHealth += health;
+        }
     }
 }
