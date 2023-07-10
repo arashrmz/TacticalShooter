@@ -6,39 +6,57 @@ namespace Src.Scripts
 {
     public class Bullet : MonoBehaviour
     {
-        private Transform _target;
-        private Vector3 _direction;
-        
+        private Vector3 _direction; //direction bullet must travel
+        private bool _isShot = false; //if the bullet is shot
+
         [SerializeField] private float moveSpeed = 10f; //move speed of the bullet
-        [SerializeField] private int damage = 1;    //damage given by the bullet
-        
+        [SerializeField] private int damage = 1; //damage given by the bullet
+        [SerializeField] private float timeToLive = 5f;
+
         public void SetTarget(Transform target)
         {
             _direction = (target.position - transform.position).normalized;
-            _target = target;
+            _isShot = true;
         }
 
         private void Update()
         {
-            if (_target == null)
+            if (!_isShot)
                 return;
-            
+
+            MoveBullet();
+            CalculateTimeToLive();
+        }
+
+        //moves the bullet in its direction
+        private void MoveBullet()
+        {
             // Move the bullet towards the target position with a constant speed
-            transform.Translate(_direction * moveSpeed * Time.deltaTime);
-            // Check if we have reached or passed our target position and handle it accordingly.
-            float distanceToTarget = Vector3.Distance(transform.position, _target.position);
-        
-            if (distanceToTarget <= 0.1f) 
-            { 
-                HitTarget();
+            transform.Translate(_direction * (moveSpeed * Time.deltaTime));
+        }
+
+        //calculate how much time bullet has to live
+        private void CalculateTimeToLive()
+        {
+            timeToLive -= Time.deltaTime;
+            if (timeToLive <= 0f)
+            {
+                Destroy(gameObject);
             }
         }
 
-        private void HitTarget()
+        private void OnTriggerEnter(Collider other)
         {
-            //damage the enemy
-            _target.GetComponent<Enemy>()?.TakeDamage(damage);
-            Destroy(gameObject);
+            //if hit the enemy
+            if (other.CompareTag("Enemy"))
+            {
+                other.GetComponent<Enemy>().TakeDamage(damage);
+                Destroy(gameObject);
+            }
+            else if (!other.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
