@@ -7,8 +7,10 @@ namespace Src.Scripts.Player
     public class PlayerShooting : MonoBehaviour
     {
         [SerializeField] private GameObject bulletPrefab;
+        [SerializeField] private float shootingRate = 0.5f;
         
         private EnemyDetection _enemyDetection;
+        private float _currentShootingRate = 0f;
         
         private void Start()
         {
@@ -21,7 +23,11 @@ namespace Src.Scripts.Player
             //if no enemies in sight, return
             if(_enemyDetection.VisibleEnemies.Count == 0)
                 return;
-            
+
+            _currentShootingRate += Time.deltaTime;
+
+            if (_currentShootingRate < shootingRate)
+                return;
             //get closest enemy
             var closestDistanceSqr = Mathf.Infinity;
             Enemy closestEnemy = null;
@@ -40,6 +46,7 @@ namespace Src.Scripts.Player
             //shoot at closest enemy
             var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.GetComponent<Bullet>().SetTarget(closestEnemy.transform);
+            _currentShootingRate = 0f;
         }
 
         private void OnDestroy()
