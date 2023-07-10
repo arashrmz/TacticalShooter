@@ -1,5 +1,6 @@
 ﻿using System;
 using Src.Scripts.Enemies;
+using Src.Scripts.Player;
 using UnityEngine;
 
 namespace Src.Scripts.Enemies
@@ -50,7 +51,7 @@ namespace Src.Scripts.Enemies
             //if hit the enemy
             if (other.CompareTag("Player"))
             {
-                // other.GetComponent<Enemy>().TakeDamage(damage);
+                other.GetComponent<PlayerManager>().TakeDamage(damage);
                 Destroy(gameObject);
             }
             else if (!other.CompareTag("Enemy"))
