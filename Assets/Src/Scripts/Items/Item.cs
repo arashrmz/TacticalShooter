@@ -55,8 +55,8 @@ namespace Src.Scripts.Items
                     Debug.Log("Received Item!");
 
                     // Apply logic to give item to player here...
-
-                    gameObject.SetActive(false); // Disable or remove item from scene after receiving it.      
+                    Pickup();
+                    Destroy(gameObject); // Disable or remove item from scene after receiving it.      
                 }
             }
             catch (TaskCanceledException)
@@ -70,5 +70,7 @@ namespace Src.Scripts.Items
                 _isPlayerOverItem = false;
             }
         }
+
+        protected virtual void Pickup(){}
     }
 }
