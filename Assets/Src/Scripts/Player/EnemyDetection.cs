@@ -49,7 +49,6 @@ namespace Src.Scripts.Player
                 }
             }
 
-            Debug.Log(VisibleEnemies.Count);
             OnDetectEnemy?.Invoke();
         }
     }
