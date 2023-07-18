@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.blackfrost.hfsm": {
+      "version": "https://github.com/AlexBlackfrost/Unity-Hierarchical-Finite-State-Machine.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "de697b3a06d01b7aae58a86b7de4d4c1325bd59d"
+    },
     "com.unity.ai.navigation": {
       "version": "1.1.4",
       "depth": 0,
